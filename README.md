@@ -1,8 +1,24 @@
 # raan_case_study
 Visualization of nodes from .xlsx file and web application
 
-To run this application, please copy an .xlsx file containing three columns of data points into the same folder as this README file is located in.
+To run this application, please specify the filepath of an .xlsx file in the "variables.txt" file under "filepath".
 
+Either install required python packages or run conda virtual environment as specified in "xlsx_case". For this, copy the "xlsx_case" folder to the "envs" folder on your computer, e.g. as "anaconda3/envs/xlsx_case"
+
+This code was run with:
+python 3.6
+R
+packages:
+rpgy
+r-ggplot2
+
+
+
+
+
+############################################################
+Details below
+############################################################
 The following structure of the .xlsx file is set as standard:
 
 The .xlsx file contains two sheets, one labeled "nodes", one "edges".
