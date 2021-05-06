@@ -64,12 +64,16 @@ button:hover
    color: black;
 }
 
+/*center paragraphs*/
+p.centered {text-align: center;}
+
 /*image scaling behaviour*/
 img {
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
 }
+
 
 /*Automargin Style for centered images */
 .center {
@@ -78,6 +82,17 @@ img {
   margin-right: auto;
   width: 90%;
 }
+
+/*set background color for style1 */
+div.style1 {
+  background-color: AliceBlue;
+  padding-top: 8px;
+  padding-right: 52px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  text-align: justify;
+}
+
 </style>
 
 <!-- javascript function to change image source -->
@@ -98,7 +113,7 @@ img {
 
 <!-- Add Header of Page -->
 <div class="header">
-  <h1>Network Vizualisation</h1>
+  <h1>Network Visualization</h1>
 </div>
 <!-- Add 3 columns with one example image each -->
 <div class="row">
@@ -114,12 +129,15 @@ img {
   
   <div class="column">
     <h2>R 3D</h2>
-    <p><img src="./Images/3dplot_r.png" alt="3D plot with R" ></p>
+         <iframe src="Images/3dplot_r.html"  width = 100%  height = 320 style="border:none;">
+            Interactive HTML shown here in browser that understands iframe 
+        </iframe>
   </div>
 </div>
 
+<!-- <p><img src="./Images/3dplot_r.html" alt="3D plot with R" ><br></p> -->
 
-<!-- Add text -->
+<div class="style1">
 <p>Within this small application a network including nodes and edges was visualized. The specifications for the excel sheet were the following:</p>
 
 <p>
@@ -135,7 +153,8 @@ row 1: contains column titles, these are used to reference the columns
   <li>column 3: weights (variable "weights")</li>
 </ol> 
 
-<p>"nodes_sheet" specs:
+
+<p >"nodes_sheet" specs:
 row 1: contains column titles, these are used to reference the columns</p>
 
 <ol>
@@ -143,13 +162,14 @@ row 1: contains column titles, these are used to reference the columns</p>
 <li>column 2: node color (variable "node_color")</li>
 <li>column 3: node label (variable "node_label")</li>
 </ol> 
+</div>
 
 <!-- Add buttons to change big image at bottom of page -->
-<button onclick="changeImage('./Images/2dplot_r.svg')">Show 2D R</button>
-
+<p class="centered">
 <button onclick="changeImage('./Images/2dplot.png')">Show 2D Python</button>
-
-<button onclick="changeImage('./Images/3dplot_r.png')">Show 3D R</button>
+<button onclick="changeImage('./Images/2dplot_r.svg')">Show 2D R</button>
+<button onclick="window.location.href='Images/3dplot_r.html'">Show 3D R</button>
+</p>
 
 <!-- Add big image at bottom of page -->
 <img id="imgDisp" src=https://i.stack.imgur.com/qVAx8.gif

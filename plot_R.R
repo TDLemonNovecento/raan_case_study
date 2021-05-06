@@ -3,9 +3,11 @@ install.packages("ggplot2")
 install.packages("network")
 install.packages("sna")
 install.packages("GGally")#uses ggplot2, network and sna
+install.packages("visNetwork")
 install.packages("readxl")
 install.packages("rstudioapi")
 install.packages("tidyverse")
+
 
 
 #set working directory to same directory as this file is located
@@ -113,23 +115,28 @@ ggnet2(my_network,
 dev.off()
 
 
+
 #for interactive 3D plot (data needs to be prepared first)
-install.packages("visNetwork")
 library(visNetwork)
-visNetwork(data_nodes, edge_list)
 
-#save interactive plot
-library(htmlwidgets)
+#prepare data, probably too bulky
+#could directly use data_nodes ect. but it works
+nodes <- data.frame(id = data_nodes$node_id,
+                    label = data_nodes$node_label,
+                    color = data_nodes$node_color)
+edges <- data.frame(from = data_edges$source_id,
+                    to = data_edges$target_id,
+                    width = data_edges$weights)
 
+network3D <- visNetwork(nodes, edges, width = "100%") %>%
+   visEdges(arrows ="to")%>%
+   visInteraction(navigationButtons = TRUE) %>%
+   visInteraction(hover = T) 
 
-saveWidget(scatterplot3js(x,y,z, color=rainbow(length(z))), 
-           file=path_store_3d)
+print(network3D)
 
-
-
-
-
-
+#save interactive html document
+visSave(network3D, path_store_3d, selfcontained = TRUE, background = "white")
 
 
 
