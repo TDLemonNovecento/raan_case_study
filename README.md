@@ -1,15 +1,28 @@
 # raan_case_study
 Visualization of nodes from .xlsx file and web application
 
-!!Attention: The paths to images ect. were specified on Windows 10, please be careful and expect errors if running on another system!!
-(Python application works since only relative paths are used)
+!!Attention: The R visualisation was specified on Windows 10.
+Please be careful and expect errors if running on another system.
+The 3D visualization on R was also tested on Ubuntu 8
+The required packages for the 2D representation could not be installed and therefore did not run on Ubuntu 8.
+The Python application was only tested on Ubuntu 8, a conda environment is included for reference (raan).
+
+
+If the commenting/coding style in html and R seems odd, it's because I usually only write Python XD Pardon that.
+I think the data restructuring in R is inefficient/unnecessary, I've added a remark in the specific places.
+Modifications to the plots can be easily achieved due to the use of network classes,
+such as adding edge labels or attributes and node attributes.
+
+How to run:
+-----------
 
 Please open the web_app_raan.html document with any available webbrowser (Firefox, Chrome, edge) to view its content.
-Examples of the visualizations contained within this repository were embedded.
+Examples of the visualizations contained within this repository were embedded, but can be easily replaced by exchanging the source files in the "Images" folder.
 
-To run the visualizations, please specify the filepath of an .xlsx file in the "variables.txt" file under "filepath".
+To run your own visualizations, please specify the filepath of an .xlsx file in the "variables.txt" file under "filepath".
+(Current example: a file named "raan_case_study interns.xlsx" located one folder upstream)
 
-Images can be generated either with python using the plot_python.py file or with R using the plot_R.R file
+Images can be generated either with python using the "plot_Python.py" file or with R using the "plot_R.R" file
 They are exported to the filenames specified in the variables.py file under
 
 outfile_2dplot (python outfile for 2D plot)
@@ -20,6 +33,16 @@ Please note that the "web_app_raan.html" application relies on the filepaths spe
 If you want to replace these images by your own images, either replace the files in the "Images" folder or substitute
 the paths in the "web_app_raan.html" file.
 
+I run python using a anaconda /miniconda virtual environment.
+Alternatively, download required packages directly to your computer.
+I used python 3.6 and the xlrd package to extract the information from the .xlsx file, but other versions
+might work too, I didn't test. Execute via "$python plot_Python.py" or your system specific equivalent.
+
+The R environment was run on RStudio, where I installed all required packages manually (see top lines of "plot_R.R")
+Code was executed line by line to catch any error warnings.
+The output files are stored to the specified outfiles in the "variables.py" file, but also displayed within RStudio.
+
+
 Specifications for the Python and R implementation are given below
 
 ##################################################################
@@ -29,6 +52,10 @@ python Specifications
 This code was run with:
 python 3.6
 packages:
+-xlrd
+-pandas
+-networkx
+-matplotlib
 
 #############################################################
 R Specifications
